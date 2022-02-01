@@ -1,6 +1,7 @@
 # Vagrant
 .vagrant
-
+#pythin nohup
+nogup.out
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -14,6 +14,7 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "fedora/32-cloud-base"
   config.vm.synced_folder ".", "/vagrant", type: "virtualbox"
+  config.vm.provision "shell", path: "setup.sh", privileged: false
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
@@ -51,6 +52,7 @@ Vagrant.configure("2") do |config|
   #
   config.vm.provider "virtualbox" do |vb|
   vb.memory = "2048"
+  config.vm.network("forwarded_port", guest: 8000, host: 8000, host_ip: "127.0.0.1")
   #   # Display the VirtualBox GUI when booting the machine
   #   vb.gui = true
   #
